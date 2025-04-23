@@ -39,7 +39,11 @@ export const signup = async(req, res, next)=>{
 
         //generate token id and role using
         const token =generateToken(newAdmin._id,'admin')
-        res.cookie('token',token)
+        res.cookie("token", token,{
+            sameSite: NODE_ENV === "production" ? "None" : "Lax",
+            secure: NODE_ENV === "production",
+            httpOnly: NODE_ENV === "production",
+        });
 
 
 
@@ -92,7 +96,11 @@ export const adminLogin =async (req,res, next)=>{
        
        //generate token 
        const token =generateToken(adminExist._id,'admin')
-       res.cookie('token',token)
+       res.cookie("token", token,{
+        sameSite: NODE_ENV === "production" ? "None" : "Lax",
+        secure: NODE_ENV === "production",
+        httpOnly: NODE_ENV === "production",
+    });
 
        const { password: _, ...userWithoutPassword } = adminExist.toObject();
 

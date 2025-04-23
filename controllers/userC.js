@@ -26,8 +26,11 @@ export const signup = async(req,res,next)=>{
         await newuser.save()
 
         const token = generateToken(newuser._id,'user')
-        res.cookie('token',token)
-
+        res.cookie("token", token,{
+            sameSite: NODE_ENV === "production" ? "None" : "Lax",
+            secure: NODE_ENV === "production",
+            httpOnly: NODE_ENV === "production",
+        });
         res.json({data: newuser,message:'signup success'})
 
     }
@@ -71,7 +74,11 @@ export const userLogin =async (req,res, next)=>{
 
        //generate token 
        const token = generateToken(userExist._id,"user")
-       res.cookie('token',token)
+       res.cookie("token", token,{
+        sameSite: NODE_ENV === "production" ? "None" : "Lax",
+        secure: NODE_ENV === "production",
+        httpOnly: NODE_ENV === "production",
+    });
        const { password: _, ...userWithoutPassword } = userExist.toObject();
 
         res.json({ data: userWithoutPassword, message: 'Login successful' });
