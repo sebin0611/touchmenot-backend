@@ -22,10 +22,12 @@ export const getallproduct = async(req,res,next)=>{
 export const getoneproduct = async(req,res,next)=>{
     try{
         
-        const {productID} = req.params
-        const displaysingleproduct= await Product.findbyId(productID)
-        const productReview = await review.findbyId(productID)
-        res.json({data:displaysingleproduct,message:"user authorized"})
+        const {productId}=req.params
+        const displaySingleProduct= await Product.findById(productId)
+        const productReview= await review.findById(productId)
+
+        res.json({data:{displaySingleProduct,productReview}, message:"user authorized"})
+
     }
     catch(error){
         console.log("not signed in")

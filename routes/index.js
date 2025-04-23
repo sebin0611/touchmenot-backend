@@ -6,7 +6,7 @@ import productRoutes from "./productROUTES.js"
 import orderRoutes from "./orderROUTES.js"
 import adminRoutes from "./adminROUTES.js"
 import cartRoutes from "./cartROUTES.js"
-
+import bannerRoutes from "./bannerROUTES.js"
 
 
 
@@ -20,6 +20,6 @@ router.use('/user',orderRoutes)
 router.use('/admin',adminRoutes)
 router.use('/cart',cartRoutes)
 router.use('/order',orderRoutes)
-
+router.use('/admin',bannerRoutes)
 
 export default router

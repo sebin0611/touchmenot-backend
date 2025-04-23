@@ -4,19 +4,26 @@ const wishlistSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', 
+      ref: 'User', // Reference to the User schema
       required: true,
+      unique: true, // Each user can have only one wishlist
     },
     products: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product', 
-        required: true,
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Product', // Reference to the Product schema
+          required: true,
+        },
+        addedAt: {
+          type: Date,
+          default: Date.now, // Timestamp when the product was added
+        },
       },
     ],
   },
   {
-    timestamps: true,
+    timestamps: true, // Adds createdAt and updatedAt fields
   }
 );
 
