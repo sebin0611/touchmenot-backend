@@ -11,7 +11,7 @@ const port =3000
 
 app.use(cors(
     {
-         origin: "  http://localhost:5173","https://frntend-e-50-touchmenot.vercel.app"
+         origin: ["http://localhost:5173","https://frntend-e-50-touchmenot.vercel.app"],
           credentials: true,
           methods:["GET","PUT","POST","DELETE","OPTION"]
 
