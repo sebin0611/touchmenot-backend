@@ -154,6 +154,8 @@ export const userLogin =async (req,res, next)=>{
 export const checkUser= async( req,res,next)=>{
 
     try {
+        const userId=req.user.id
+        console.log(userId,"backendddd  usseerr")
         res.json({message:"user is authorized"})
     }
         catch(error){
