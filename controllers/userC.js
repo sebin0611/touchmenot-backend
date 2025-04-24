@@ -3,6 +3,9 @@ import user from "../models/userMODEL.js"
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/token.js";
 
+
+const NODE_ENV = process.env.NODE_ENV;
+
 export const signup = async(req,res,next)=>{
     try{
         //res.json({data:data,message:"signup success"})
