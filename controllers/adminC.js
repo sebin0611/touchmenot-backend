@@ -2,6 +2,7 @@ import User from "../models/userMODEL.js"
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/token.js";
 
+const NODE_ENV = process.env.NODE_ENV;
 
 export const signup = async(req, res, next)=>{
     try{
@@ -164,6 +165,7 @@ export const adminLogout = async (req,res,next)=>{
 export const checkadmin= async( req,res,next)=>{
 
     try {
+        const adminId=req.admin.id
         res.json({message:"admin is authorized"})
         
     } catch (error) {

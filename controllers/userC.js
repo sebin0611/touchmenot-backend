@@ -4,14 +4,14 @@ import bcrypt from "bcrypt";
 import { generateToken } from "../utils/token.js";
 
 
-const NODE_ENV = process.env.NODE_ENV;
+  const NODE_ENV = process.env.NODE_ENV;
 
-export const signup = async(req,res,next)=>{
+  export const signup = async(req,res,next)=>{
     try{
         //res.json({data:data,message:"signup success"})
         console.log("signup is working")
 
-        const{username,email,password,address,confirmpassword,profilepic}=req.body
+        const{username,email,password,address,confirmpassword}=req.body
 
         if(!username||!email||!password||!confirmpassword){
             return res.status(400).json({message:"all fields required"})
@@ -25,7 +25,7 @@ export const signup = async(req,res,next)=>{
         }
 
         const hashpassword = bcrypt.hashSync(password,10);
-        const newuser = new user({username,email,password:hashpassword,address,profilepic})
+        const newuser = new user({username,email,password:hashpassword,address})
         await newuser.save()
 
         const token = generateToken(newuser._id,'user')

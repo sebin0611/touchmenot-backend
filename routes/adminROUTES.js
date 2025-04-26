@@ -1,5 +1,5 @@
 import express from "express"
-import { adminLogin } from "../controllers/adminC.js"
+import { adminLogin, checkadmin } from "../controllers/adminC.js"
 import { authuadmin } from "../middlewares/authAdmins.js"
 import { adminProfile } from "../controllers/adminC.js"
 import { adminProfileUpdate } from "../controllers/adminC.js"
@@ -25,6 +25,8 @@ router.get("/logout",authuadmin,adminLogout)
 router.delete('/delete-account')
 
 router.put('/deactivateUser/:userId',authuadmin)
+
+router.get("/checkadmin",authuadmin,checkadmin)
 
 
 export default router
