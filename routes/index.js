@@ -13,7 +13,7 @@ import bannerRoutes from "./bannerROUTES.js"
 const router = express.Router()
 
 router.use('/user',userRoutes)
-router.use('/user',wishlistRoutes)
+router.use('/wishlist',wishlistRoutes)
 router.use('/user',reviewRoutes)
 router.use('/product',productRoutes)
 router.use('/user',orderRoutes)

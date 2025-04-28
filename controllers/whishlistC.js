@@ -5,7 +5,7 @@ export const addToWishlist = async (req, res) => {
     try {
       
       authuser(req, res, async () => {
-        const { productId } = req.body;
+        const { productId } = req.params;
         const userId = req.user.id; 
   
        
