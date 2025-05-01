@@ -7,7 +7,7 @@ import orderRoutes from "./orderROUTES.js"
 import adminRoutes from "./adminROUTES.js"
 import cartRoutes from "./cartROUTES.js"
 import bannerRoutes from "./bannerROUTES.js"
-
+import paymentsROUTES from "./paymentsROUTES.js"
 
 
 const router = express.Router()
@@ -21,5 +21,7 @@ router.use('/admin',adminRoutes)
 router.use('/cart',cartRoutes)
 router.use('/order',orderRoutes)
 router.use('/admin',bannerRoutes)
+router.use('/payment',paymentsROUTES)
+
 
 export default router
